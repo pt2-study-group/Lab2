@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 /*
  * Задание повышенной сложности.
@@ -8,9 +9,21 @@
  * Формат выводимых данных: слово «Да» или «Нет».
  * 
  */
-
-int main(int argc, char **argv)
+int main()
 {
-	printf("hello world\n");
-	return 0;
+    unsigned int N, i;
+    bool Pr;
+    cout<< "N = ";
+    cin >>N;
+    Pr=true ; //Предположение что число простое
+    for ( i = 2; i <= N/2; i++)
+        if(N%i == 0) { //Если найдется хотя бы один делитель, то
+            Pr=false; //число простым не явл и
+            break; //Досрочный выход из цикла
+        }
+    if ( Pr ) //Проверка значения логического параметра и вывод на печать соотв сообщ
+        cout<<N<<" - простое число ";
+    else
+        cout<<N<<" - не является простым числом ";
+    return 0;
 }
